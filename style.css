@@ -122,7 +122,7 @@ main {
 .tag {
     color: white;
     padding: 10px 20px;
-    background-color: #618685;
+    background-color: #0c4947;
     border-radius: 10px;
     margin: 5px;
     display: inline-block;
@@ -369,7 +369,7 @@ main {
 }
 
 .btn {
-    background-color: #1f565f;
+    background-color: #000000;
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -392,7 +392,7 @@ main {
 }
 
 .social-media {
-    background-color: rgb(19, 41, 37);
+    background-color: #000000;
     color: #fff;
     font-family: 'Roboto Mono', sans-serif;
     margin: 0;
