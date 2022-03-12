@@ -314,3 +314,80 @@ function showVideos() {
         }
     })
 }
+
+
+const leftArrow = document.getElementById('left-arrow')
+const rightArrow = document.getElementById('right-arrow')
+
+leftArrow.addEventListener('click', () => {
+    if (activeSlide > 0) {
+        activeSlide--;
+    } else {
+        activeSlide = totalVideos - 1;
+    }
+
+    showVideos()
+})
+
+rightArrow.addEventListener('click', () => {
+    if (activeSlide < (totalVideos - 1)) {
+        activeSlide++;
+    } else {
+        activeSlide = 0;
+    }
+    showVideos()
+})
+
+
+function getColor(vote) {
+    if (vote >= 8) {
+        return 'green'
+    } else if (vote >= 5) {
+        return "orange"
+    } else {
+        return 'red'
+    }
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const searchTerm = search.value;
+    selectedGenre = [];
+    setGenre();
+    if (searchTerm) {
+        getMovies(searchURL + '&query=' + searchTerm)
+    } else {
+        getMovies(API_URL);
+    }
+
+})
+
+prev.addEventListener('click', () => {
+    if (prevPage > 0) {
+        pageCall(prevPage);
+    }
+})
+
+next.addEventListener('click', () => {
+    if (nextPage <= totalPages) {
+        pageCall(nextPage);
+    }
+})
+
+function pageCall(page) {
+    let urlSplit = lastUrl.split('?');
+    let queryParams = urlSplit[1].split('&');
+    let key = queryParams[queryParams.length - 1].split('=');
+    if (key[0] != 'page') {
+        let url = lastUrl + '&page=' + page
+        getMovies(url);
+    } else {
+        key[1] = page.toString();
+        let a = key.join('=');
+        queryParams[queryParams.length - 1] = a;
+        let b = queryParams.join('&');
+        let url = urlSplit[0] + '?' + b
+        getMovies(url);
+    }
+}
