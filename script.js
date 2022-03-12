@@ -154,7 +154,7 @@ function clearBtn() {
         let clear = document.createElement('div');
         clear.classList.add('tag', 'highlight');
         clear.id = 'clear';
-        clear.innerText = 'Clear x';
+        clear.innerText = 'Clear selected categorie/s';
         clear.addEventListener('click', () => {
             selectedGenre = [];
             setGenre();

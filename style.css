@@ -27,7 +27,7 @@ header {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     padding: 0.5rem 1rem;
-    border-radius: 50px;
+    border-radius: 15px;
     font-size: 1rem;
     color: #fff;
     font-family: inherit;
@@ -130,7 +130,12 @@ main {
 }
 
 .tag.highlight {
-    background-color: rgb(5, 36, 54);
+    background-color: rgb(85, 84, 84);
+}
+
+#clear {
+    background-color: #990404;
+    border-radius: 1px;
 }
 
 .no-results {
