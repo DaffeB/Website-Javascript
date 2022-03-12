@@ -18,67 +18,67 @@ const genres = [{
     },
     {
         "id": 35,
-        "name": "Comedy"
+        "name": "COMEDY"
     },
     {
         "id": 80,
-        "name": "Crime"
+        "name": "CRIME"
     },
     {
         "id": 99,
-        "name": "Documentary"
+        "name": "DOCUMENTARY"
     },
     {
         "id": 18,
-        "name": "Drama"
+        "name": "DRAMA"
     },
     {
         "id": 10751,
-        "name": "Family"
+        "name": "FAMILY"
     },
     {
         "id": 14,
-        "name": "Fantasy"
+        "name": "FANTASY"
     },
     {
         "id": 36,
-        "name": "History"
+        "name": "HISTORY"
     },
     {
         "id": 27,
-        "name": "Horror +16"
+        "name": "HORROR"
     },
     {
         "id": 10402,
-        "name": "Music"
+        "name": "MUSIC"
     },
     {
         "id": 9648,
-        "name": "Mystery"
+        "name": "MYSTERY"
     },
     {
         "id": 10749,
-        "name": "Romance"
+        "name": "ROMANCE"
     },
     {
         "id": 878,
-        "name": "Science Fiction"
+        "name": "SCIENCE FICTION"
     },
     {
         "id": 10770,
-        "name": "TV Movie"
+        "name": "TV MOVIE"
     },
     {
         "id": 53,
-        "name": "Thriller"
+        "name": "THRILLER"
     },
     {
         "id": 10752,
-        "name": "War"
+        "name": "WARr"
     },
     {
         "id": 37,
-        "name": "Western"
+        "name": "WESTERN"
     }
 ]
 
