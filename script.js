@@ -18,67 +18,67 @@ const genres = [{
     },
     {
         "id": 35,
-        "name": "COMEDY"
+        "name": "Comedy"
     },
     {
         "id": 80,
-        "name": "CRIME"
+        "name": "Crime"
     },
     {
         "id": 99,
-        "name": "DOCUMENTARY"
+        "name": "Documentary"
     },
     {
         "id": 18,
-        "name": "DRAMA"
+        "name": "Drama"
     },
     {
         "id": 10751,
-        "name": "FAMILY"
+        "name": "Family"
     },
     {
         "id": 14,
-        "name": "FANTASY"
+        "name": "Fantasy"
     },
     {
         "id": 36,
-        "name": "HISTORY"
+        "name": "History"
     },
     {
         "id": 27,
-        "name": "HORROR"
+        "name": "Horror +16"
     },
     {
         "id": 10402,
-        "name": "MUSIC"
+        "name": "Music"
     },
     {
         "id": 9648,
-        "name": "MYSTERY"
+        "name": "Mystery"
     },
     {
         "id": 10749,
-        "name": "ROMANCE"
+        "name": "Romance"
     },
     {
         "id": 878,
-        "name": "SCIENCE FICTION"
+        "name": "Science Fiction"
     },
     {
         "id": 10770,
-        "name": "TV MOVIE"
+        "name": "TV Movie"
     },
     {
         "id": 53,
-        "name": "THRILLER"
+        "name": "Thriller"
     },
     {
         "id": 10752,
-        "name": "WAR"
+        "name": "War"
     },
     {
         "id": 37,
-        "name": "WESTERN"
+        "name": "Western"
     }
 ]
 
@@ -96,6 +96,7 @@ var nextPage = 2;
 var prevPage = 3;
 var lastUrl = '';
 var totalPages = 100;
+
 
 var selectedGenre = []
 setGenre();
@@ -200,6 +201,7 @@ function getMovies(url) {
 
 }
 
+
 function showMovies(data) {
     main.innerHTML = '';
 
@@ -235,7 +237,7 @@ function showMovies(data) {
 }
 
 const overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element */
+
 function openNav(movie) {
     let id = movie.id;
     fetch(BASE_URL + '/movie/' + id + '/videos?' + API_KEY).then(res => res.json()).then(videoData => {
@@ -277,6 +279,38 @@ function openNav(movie) {
             } else {
                 overlayContent.innerHTML = `<h1 class="no-results">No Results Found</h1>`
             }
+        }
+    })
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+
+var activeSlide = 0;
+var totalVideos = 0;
+
+function showVideos() {
+    let embedClasses = document.querySelectorAll('.embed');
+    let dots = document.querySelectorAll('.dot');
+
+    totalVideos = embedClasses.length;
+    embedClasses.forEach((embedTag, idx) => {
+        if (activeSlide == idx) {
+            embedTag.classList.add('show')
+            embedTag.classList.remove('hide')
+
+        } else {
+            embedTag.classList.add('hide');
+            embedTag.classList.remove('show')
+        }
+    })
+
+    dots.forEach((dot, indx) => {
+        if (activeSlide == indx) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active')
         }
     })
 }
