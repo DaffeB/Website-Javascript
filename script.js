@@ -96,3 +96,70 @@ var nextPage = 2;
 var prevPage = 3;
 var lastUrl = '';
 var totalPages = 100;
+
+var selectedGenre = []
+setGenre();
+
+function setGenre() {
+    tagsEl.innerHTML = '';
+    genres.forEach(genre => {
+        const t = document.createElement('div');
+        t.classList.add('tag');
+        t.id = genre.id;
+        t.innerText = genre.name;
+        t.addEventListener('click', () => {
+            if (selectedGenre.length == 0) {
+                selectedGenre.push(genre.id);
+            } else {
+                if (selectedGenre.includes(genre.id)) {
+                    selectedGenre.forEach((id, idx) => {
+                        if (id == genre.id) {
+                            selectedGenre.splice(idx, 1);
+                        }
+                    })
+                } else {
+                    selectedGenre.push(genre.id);
+                }
+            }
+            console.log(selectedGenre)
+            getMovies(API_URL + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+            highlightSelection()
+        })
+        tagsEl.append(t);
+    })
+}
+
+function highlightSelection() {
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.classList.remove('highlight')
+    })
+    clearBtn()
+    if (selectedGenre.length != 0) {
+        selectedGenre.forEach(id => {
+            const hightlightedTag = document.getElementById(id);
+            hightlightedTag.classList.add('highlight');
+        })
+    }
+
+}
+
+function clearBtn() {
+    let clearBtn = document.getElementById('clear');
+    if (clearBtn) {
+        clearBtn.classList.add('highlight')
+    } else {
+
+        let clear = document.createElement('div');
+        clear.classList.add('tag', 'highlight');
+        clear.id = 'clear';
+        clear.innerText = 'Clear x';
+        clear.addEventListener('click', () => {
+            selectedGenre = [];
+            setGenre();
+            getMovies(API_URL);
+        })
+        tagsEl.append(clear);
+    }
+
+}
