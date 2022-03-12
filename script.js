@@ -421,10 +421,10 @@ ratingsContainer.addEventListener('click', (e) => {
 sendBtn.addEventListener('click', (e) => {
     panel.innerHTML = `
         <i class="fas fa-heart"></i>
-        <strong>Thank You!</strong>
+        <strong>Thank YOU!</strong>
         <br>
         <strong>Feedback: ${selectedRating}</strong>
-        <p>We'll use your feedback to improve our customer support</p>
+        <p>We'll use your feedback to improve our customer support.</p>
     `
 })
 
@@ -433,3 +433,27 @@ function removeActive() {
         ratings[i].classList.remove('active')
     }
 }
+
+//Counter for Social Media 
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    counter.innerText = '0';
+
+    const updateCounter = () => {
+        const target = +counter.getAttribute('data-target')
+        const c = +counter.innerText
+
+        const increment = target / 1000
+
+        if (c < target) {
+            counter.innerText = `${Math.ceil(c + increment)}`
+            setTimeout(updateCounter, 1)
+        } else {
+            counter.innerText = target
+        }
+    }
+
+    updateCounter()
+})

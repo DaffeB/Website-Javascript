@@ -364,7 +364,7 @@ main {
 }
 
 .btn {
-    background-color: #302d2b;
+    background-color: #1f565f;
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -382,7 +382,7 @@ main {
 
 .fa-heart {
     color: red;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -394,6 +394,25 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
+    min-height: 150px;
     overflow: hidden;
+}
+
+.counter-container {
+    color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.counter {
+    font-size: 20px;
+}
+
+@media (max-width: 580px) {
+    body {
+        flex-direction: column;
+    }
 }
