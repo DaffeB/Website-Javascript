@@ -74,7 +74,7 @@ const genres = [{
     },
     {
         "id": 10752,
-        "name": "WARr"
+        "name": "WAR"
     },
     {
         "id": 37,
@@ -223,7 +223,7 @@ function showMovies(data) {
                 <h3>Overview</h3>
                 ${overview}
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button
+                <button class="know-more" id="${id}">Watch Trailer</button
             </div>
         
         `
@@ -446,7 +446,7 @@ counters.forEach(counter => {
         const target = +counter.getAttribute('data-target')
         const c = +counter.innerText
 
-        const increment = target / 1000
+        const increment = target / 1500
 
         if (c < target) {
             counter.innerText = `${Math.ceil(c + increment)}`
